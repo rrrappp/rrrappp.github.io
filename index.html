@@ -1,92 +1,524 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💖 WISH CAFE - センイル記念イベント 💖</title>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Angel's Secret Base — 天使のひみつ基地</title>
+
+  <!-- Google Font: M PLUS Rounded 1c (丸文字) -->
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #fffdfd;
+      --pastel-pink: #ffd9e6;
+      --pastel-mint: #dff7ea;
+      --pastel-blue: #e6f5ff;
+      --silver: #e7eef6;
+      --text: #2b2b33;
+      --accent: #9dd7f0;
+      --shadow: rgba(34,34,51,0.06);
+      --glass: rgba(255,255,255,0.6);
+      --radius: 18px;
+      --maxw: 1100px;
+    }
+
+    /* Reset + base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "M PLUS Rounded 1c", -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+      color:var(--text);
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 50%, #f6fbff 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    a{color:inherit; text-decoration:none}
+
+    .container{
+      width:90%;
+      max-width:var(--maxw);
+      margin:0 auto;
+    }
+
+    /* Header / Hero */
+    header{
+      padding:28px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo .mark{
+      width:56px;
+      height:56px;
+      border-radius:14px;
+      background: linear-gradient(135deg,var(--pastel-blue), var(--pastel-mint));
+      box-shadow: 0 8px 20px var(--shadow);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transform:translateY(-2px);
+    }
+    .logo svg{width:30px; height:30px; opacity:0.98}
+    .brand{
+      font-weight:900;
+      font-size:20px;
+      letter-spacing:0.6px;
+    }
+    .sub{
+      font-size:11px;
+      color:#6b6b75;
+      margin-top:2px;
+    }
+
+    nav {display:flex; gap:12px; align-items:center;}
+    .nav-link{font-weight:700; padding:8px 12px; border-radius:12px; background:transparent; transition:all .22s}
+    .nav-link:hover{transform:translateY(-4px); box-shadow:0 8px 18px var(--shadow)}
+
+    /* Hero */
+    .hero{
+      margin-top:12px;
+      padding:48px 0 56px;
+      display:flex;
+      align-items:center;
+      gap:28px;
+    }
+    .hero-left{
+      flex:1;
+      min-width:260px;
+    }
+    .kicker{
+      display:inline-block;
+      background:linear-gradient(90deg,var(--pastel-mint),var(--pastel-pink));
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:13px;
+      box-shadow:0 6px 18px var(--shadow);
+    }
+    .hero-title{
+      font-size:40px;
+      margin:18px 0 10px;
+      line-height:1.05;
+      letter-spacing:0.2px;
+      color:var(--text);
+    }
+    .hero-desc{
+      color:#6b6b75;
+      font-size:15px;
+      margin-bottom:18px;
+      max-width:52ch;
+    }
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:10px}
+    .btn{
+      padding:12px 18px;
+      border-radius:14px;
+      font-weight:800;
+      cursor:pointer;
+      box-shadow:0 10px 30px var(--shadow);
+      transition:transform .18s ease, box-shadow .18s;
+      border:none;
+    }
+    .btn-primary{
+      background:linear-gradient(90deg,var(--pastel-pink),var(--pastel-blue));
+    }
+    .btn-ghost{
+      background:transparent;
+      border:1px solid rgba(120,140,160,0.12);
+    }
+    .btn:hover{transform:translateY(-6px)}
+
+    /* Hero art */
+    .hero-right{
+      width:460px;
+      max-width:46%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+    }
+
+    .card{
+      background:linear-gradient(180deg,var(--glass), rgba(255,255,255,0.9));
+      border-radius:22px;
+      padding:18px;
+      box-shadow:0 14px 40px var(--shadow);
+      width:100%;
+      max-width:420px;
+      backdrop-filter: blur(6px);
+      border:1px solid rgba(255,255,255,0.6);
+    }
+
+    .cup{
+      display:block;
+      width:100%;
+      height:260px;
+      border-radius:12px;
+      background-image:url('https://picsum.photos/640/360?blur=3&random=1');
+      background-size:cover;
+      background-position:center;
+      margin-bottom:12px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .floaty{
+      position:absolute;
+      top:-16px;
+      right:-28px;
+      width:120px;
+      height:120px;
+      opacity:0.9;
+      animation:float 6s ease-in-out infinite;
+      pointer-events:none;
+    }
+    @keyframes float{
+      0%{transform:translateY(0) rotate(0deg)}
+      50%{transform:translateY(-12px) rotate(6deg)}
+      100%{transform:translateY(0) rotate(0deg)}
+    }
+
+    /* Sections */
+    section{padding:48px 0}
+    .card-soft{
+      background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,250,255,0.9));
+      border-radius:20px;
+      padding:20px;
+      box-shadow:0 10px 30px var(--shadow);
+    }
+
+    .grid{
+      display:grid;
+      gap:18px;
+    }
+
+    /* Concept */
+    .concept-grid{
+      grid-template-columns: 1fr 360px;
+      align-items:center;
+      gap:28px;
+    }
+
+    .menu-grid{
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    }
+    .menu-item{
+      border-radius:14px;
+      padding:14px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.9), var(--silver));
+      display:flex;
+      gap:12px;
+      align-items:center;
+      transition:transform .18s;
+    }
+    .menu-item:hover{transform:translateY(-6px)}
+    .menu-thumb{
+      width:84px;
+      height:84px;
+      border-radius:12px;
+      background-size:cover;
+      background-position:center;
+      flex-shrink:0;
+      box-shadow:0 8px 18px rgba(0,0,0,0.06);
+    }
+    .menu-info h4{margin:0 0 6px; font-size:16px}
+    .menu-info p{margin:0; font-size:13px; color:#6b6b75}
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    .gallery img{width:100%; height:160px; object-fit:cover; border-radius:12px; display:block}
+
+    /* Access */
+    .access{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    .hours, .mapcard{flex:1; min-width:260px}
+
+    /* Footer */
+    footer{
+      padding:28px 0 64px;
+      color:#6b6b75;
+      font-size:14px;
+    }
+    .socials{display:flex; gap:12px; align-items:center}
+
+    /* small screens */
+    @media (max-width:900px){
+      .hero{flex-direction:column; align-items:flex-start}
+      .hero-right{max-width:100%; width:100%}
+      .concept-grid{grid-template-columns:1fr}
+      .gallery{grid-template-columns: repeat(2, 1fr)}
+    }
+    @media (max-width:520px){
+      .gallery{grid-template-columns: 1fr}
+      .brand{font-size:18px}
+      .hero-title{font-size:32px}
+    }
+
+    /* subtle reveal */
+    .reveal {opacity:0; transform:translateY(8px); transition:all .9s cubic-bezier(.2,.9,.2,1);}
+    .reveal.show{opacity:1; transform:none}
+  </style>
 </head>
 <body>
-    </body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="mark" aria-hidden="true">
+          <!-- simple angel wing icon -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3 12c2-3 6-6 9-6s6 3 9 6c0 4-4 8-9 8S3 16 3 12z" fill="white" opacity="0.18"/>
+            <path d="M7 10c.8-1 2-2 4-2s3.2 1 4 2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div>
+          <div class="brand">Angel's Secret Base</div>
+          <div class="sub">天使のひみつ基地</div>
+        </div>
+      </div>
+
+      <nav aria-label="メインナビ">
+        <a class="nav-link" href="#concept">コンセプト</a>
+        <a class="nav-link" href="#menu">メニュー</a>
+        <a class="nav-link" href="#gallery">ギャラリー</a>
+        <a class="nav-link" href="#access">アクセス</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-left">
+          <div class="kicker">ひみつのカフェ</div>
+          <h1 class="hero-title">ようこそ、Angel's Secret Baseへ<br><small style="font-weight:700; font-size:16px; color:#6b6b75">ふわふわ・まあるい時間をあなたに</small></h1>
+          <p class="hero-desc">店内はやさしいパステルの世界。手作りスイーツと香り高いコーヒーで、ひとときのリラックスを。友達とのおしゃべりや、ひとりの読書にもぴったりの小さな隠れ家です。</p>
+
+          <div class="cta-row">
+            <button class="btn btn-primary" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">メニューを見る</button>
+            <a class="btn btn-ghost" href="#access">アクセス</a>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="card reveal" id="heroCard">
+            <div class="cup" role="img" aria-label="ダミー画像：カフェのイメージ"></div>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <div style="font-weight:800; font-size:16px;">本日のおすすめ</div>
+                <div style="font-size:13px; color:#6b6b75">ピンクラテとレモンシュガーのケーキ</div>
+              </div>
+              <div style="font-weight:900; font-size:13px; padding:8px 10px; border-radius:12px; background:linear-gradient(90deg,var(--pastel-mint),var(--pastel-blue));">OPEN</div>
+            </div>
+          </div>
+
+          <!-- floaty angel illustration -->
+          <div class="floaty" aria-hidden="true">
+            <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" width="120" height="120">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1">
+                  <stop offset="0" stop-color="#ffd9e6"/>
+                  <stop offset="1" stop-color="#e6f5ff"/>
+                </linearGradient>
+              </defs>
+              <circle cx="120" cy="120" r="60" fill="url(#g1)" opacity="0.9"/>
+              <g transform="translate(60,60)" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.95">
+                <path d="M20 45c10-12 22-18 40-18s30 6 40 18" stroke-linecap="round"/>
+                <path d="M40 10c0 6-6 12-12 12s-12-6-12-12 6-10 12-10 12 4 12 10z" fill="#fff" opacity="0.6"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- Concept -->
+      <section id="concept">
+        <div class="container">
+          <div class="card-soft reveal" style="padding:28px;">
+            <div class="grid concept-grid">
+              <div>
+                <h2 style="margin-top:0">コンセプト</h2>
+                <p style="color:#6b6b75; font-size:15px; margin-top:6px">
+                  Angel's Secret Baseは「日常の中の小さなときめき」をテーマにしたカフェです。  
+                  パステルカラーの空間とやさしい接客で、お客様一人ひとりに心地よい時間をお届けします。季節のスイーツやオリジナルドリンクもどうぞ。
+                </p>
+
+                <ul style="display:flex; gap:12px; margin-top:16px; flex-wrap:wrap; list-style:none; padding:0">
+                  <li style="background:var(--pastel-pink); padding:8px 12px; border-radius:12px; font-weight:700">手作りスイーツ</li>
+                  <li style="background:var(--pastel-mint); padding:8px 12px; border-radius:12px; font-weight:700">季節のドリンク</li>
+                  <li style="background:var(--pastel-blue); padding:8px 12px; border-radius:12px; font-weight:700">落ち着ける空間</li>
+                </ul>
+              </div>
+
+              <div>
+                <div style="border-radius:14px; overflow:hidden; box-shadow:0 12px 40px var(--shadow);">
+                  <img src="https://picsum.photos/520/320?random=7" alt="店内イメージ（ダミー）" style="width:100%; display:block;"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Menu -->
+      <section id="menu">
+        <div class="container">
+          <h2 style="margin-bottom:12px">メニュー</h2>
+          <p style="color:#6b6b75; margin-top:0; margin-bottom:18px">人気のおすすめメニューをピックアップ</p>
+
+          <div class="grid menu-grid reveal" id="menuGrid" style="grid-template-columns: repeat(auto-fit, minmax(240px,1fr));">
+            <!-- menu item 1 -->
+            <div class="menu-item">
+              <div class="menu-thumb" style="background-image:url('https://picsum.photos/200/200?food=1');"></div>
+              <div class="menu-info">
+                <h4>ピンクラテ</h4>
+                <p>やさしいベリー風味のふんわりラテ</p>
+              </div>
+            </div>
+
+            <!-- menu item 2 -->
+            <div class="menu-item">
+              <div class="menu-thumb" style="background-image:url('https://picsum.photos/200/200?food=2');"></div>
+              <div class="menu-info">
+                <h4>ミントクリームソーダ</h4>
+                <p>爽やかなミントとふわふわクリーム</p>
+              </div>
+            </div>
+
+            <!-- menu item 3 -->
+            <div class="menu-item">
+              <div class="menu-thumb" style="background-image:url('https://picsum.photos/200/200?food=3');"></div>
+              <div class="menu-info">
+                <h4>レモンシュガーケーキ</h4>
+                <p>しっとり甘酸っぱい自家製ケーキ</p>
+              </div>
+            </div>
+
+            <!-- menu item 4 -->
+            <div class="menu-item">
+              <div class="menu-thumb" style="background-image:url('https://picsum.photos/200/200?food=4');"></div>
+              <div class="menu-info">
+                <h4>ハニーバタートースト</h4>
+                <p>外カリ中ふわの贅沢トースト</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery -->
+      <section id="gallery">
+        <div class="container">
+          <h2 style="margin-bottom:12px">ギャラリー</h2>
+          <p style="color:#6b6b75; margin-top:0; margin-bottom:18px">店内やスイーツの写真（ダミー）</p>
+
+          <div class="gallery reveal">
+            <img src="https://picsum.photos/480/320?random=11" alt="ギャラリー画像1">
+            <img src="https://picsum.photos/480/320?random=12" alt="ギャラリー画像2">
+            <img src="https://picsum.photos/480/320?random=13" alt="ギャラリー画像3">
+            <img src="https://picsum.photos/480/320?random=14" alt="ギャラリー画像4">
+            <img src="https://picsum.photos/480/320?random=15" alt="ギャラリー画像5">
+            <img src="https://picsum.photos/480/320?random=16" alt="ギャラリー画像6">
+          </div>
+        </div>
+      </section>
+
+      <!-- Access -->
+      <section id="access">
+        <div class="container">
+          <h2 style="margin-bottom:12px">アクセス</h2>
+          <div class="card-soft access reveal">
+            <div class="hours">
+              <h3 style="margin-top:0; margin-bottom:6px">営業時間</h3>
+              <p style="margin:0 0 12px; color:#6b6b75">平日 11:00〜19:00 / 土日祝 10:00〜20:00</p>
+
+              <h3 style="margin-bottom:6px">住所</h3>
+              <p style="margin:0 0 12px; color:#6b6b75">〒000-0000 東京都〇〇区〇〇町1-2-3（ダミー住所）</p>
+
+              <h3 style="margin-bottom:6px">ご予約</h3>
+              <p style="margin:0 0 6px; color:#6b6b75">電話：03-1234-5678（ダミー）</p>
+              <p style="margin:0; color:#6b6b75">メール：hello@angels-secret.example</p>
+            </div>
+
+            <div class="mapcard">
+              <!-- placeholder map image; replace with embed map if desired -->
+              <div style="border-radius:12px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,0.06)">
+                <img src="https://picsum.photos/520/320?random=21" alt="地図のダミー画像" style="width:100%; display:block;">
+              </div>
+              <div style="margin-top:10px; display:flex; gap:8px;">
+                <a href="#" class="btn btn-primary" style="padding:10px 12px; font-size:13px;">ルートを確認</a>
+                <a href="#" class="btn btn-ghost" style="padding:10px 12px; font-size:13px;">SNSを見る</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+        <div>
+          <div style="font-weight:900">Angel's Secret Base</div>
+          <div style="color:#6b6b75; font-size:13px">© <span id="year"></span> Angel's Secret Base</div>
+        </div>
+
+        <div class="socials">
+          <a href="#" aria-label="Instagram" title="Instagram">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="opacity:0.9"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#6b6b75" stroke-width="1.2"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter" title="Twitter">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="opacity:0.9"><path d="M5 19c7 0 11-6 11-11v-.5A7.9 7.9 0 0 0 18 6c-.8.4-1.7.6-2.7.8a4.5 4.5 0 0 0-7.6 4.1A12.9 12.9 0 0 1 4 6.7a4.5 4.5 0 0 0 1.4 6z" stroke="#6b6b75" stroke-width="1.2" fill="none"/></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // fill year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // reveal on scroll (simple)
+    function revealOnScroll(){
+      document.querySelectorAll('.reveal').forEach(el=>{
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 64){
+          el.classList.add('show');
+        }
+      })
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', () => {
+      revealOnScroll();
+      // gentle floating animation delay
+      document.querySelectorAll('.reveal').forEach((el,i)=> el.style.transitionDelay = (i*90)+'ms');
+    });
+
+    // smooth anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      })
+    });
+  </script>
+</body>
 </html>
-/*==================================
-  センイルカフェ風 ベーススタイル
-====================================*/
-body {
-    /* M PLUS Rounded 1c を最優先に指定 */
-    font-family: 'M PLUS Rounded 1c', 'Arial', sans-serif; 
-    background-color: #fcf4ff; /* ごく薄いパープル/ピンク */
-    color: #4a4a4a; /* 少し柔らかいグレー */
-    margin: 0;
-    line-height: 1.6;
-}
-
-h1, h2, h3 {
-    color: #ff85a2; /* 濃いめのピンク */
-    /* 見出しを太くして、より丸文字感を強調 */
-    font-weight: 700; 
-}
-
-/*==================================
-  ヘッダー＆ナビゲーション：リボン風
-====================================*/
-header {
-    background-color: #ffffff;
-    padding: 15px 50px;
-    /* 丸みのあるシャドウで柔らかく */
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2); 
-    border-bottom: 5px solid #a8e0d4; /* ミントグリーンのライン */
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-nav a {
-    color: #4682b4; 
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.1em;
-    padding: 5px 10px;
-    border-radius: 15px; /* 丸みをつける */
-    transition: all 0.3s;
-}
-
-nav a:hover {
-    background-color: #ffc8dd; /* ホバーでパステルピンクの背景 */
-    color: #ffffff; /* 文字を白に */
-    box-shadow: 0 0 10px rgba(255, 105, 180, 0.5); /* キラキラシャドウ */
-}
-
-/*==================================
-  セクション：フリル＆デコレーション
-====================================*/
-section {
-    padding: 60px 20px;
-    text-align: center;
-    margin: 30px auto;
-    max-width: 1000px;
-    background-color: #ffffff;
-    border-radius: 30px; /* 全体に大きな丸み */
-    border: 3px dashed #ffb3c1; /* 手書き風の破線ボーダー */
-}
-
-/* メニューの画像やカードにも丸みをつける */
-.menu-item img {
-    border-radius: 20px;
-    border: 3px solid #ffe8b3; /* イエローのフチ */
-}
-
-/* カウントダウンタイマー部分を特別な装飾で目立たせる */
-#countdown {
-    font-size: 2em;
-    color: #ff69b4;
-    padding: 15px;
-    margin-top: 20px;
-    /* バルーンやお祝いの文字のような背景 */
-    background-color: #fff0f5; 
-    border-radius: 50px; 
-    display: inline-block;
-    box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
-}
