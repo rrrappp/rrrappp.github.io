@@ -2,93 +2,40 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>WISH CAFE</title>
+  <title>やさしいカフェ</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>WISH ☕ CAFE</h1>
-    <p class="subtitle">ゆめみたいな時間を、あなたに。</p>
+    <h1>やさしいカフェ ☕</h1>
+    <p class="subtitle">あまくて、ふわふわな じかんを。</p>
   </header>
 
-  <main class="menu">
-    <div class="menu-item">
-      <h2>🌸 さくらラテ</h2>
-      <p>春の香りただよう、ほんのりピンクのラテ。</p>
-    </div>
-    <div class="menu-item">
-      <h2>🍓 ベリーベリースムージー</h2>
-      <p>甘酸っぱさがクセになる、イチゴとブルーベリーのミックス。</p>
-    </div>
-    <div class="menu-item">
-      <h2>☁️ ホワイトモカ</h2>
-      <p>ふんわり優しい甘さのホワイトチョコモカ。</p>
-    </div>
+  <main>
+    <section class="menu">
+      <h2>🍰 メニュー</h2>
+      <div class="menu-items">
+        <div class="item">
+          <h3>カフェラテ</h3>
+          <p>まろやかなミルクとエスプレッソのハーモニー</p>
+        </div>
+        <div class="item">
+          <h3>ストロベリースムージー</h3>
+          <p>甘酸っぱいイチゴがたっぷり♡</p>
+        </div>
+        <div class="item">
+          <h3>はちみつレモンティー</h3>
+          <p>ほんのり甘くてすっきりする味わい</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>© 2025 WISH CAFE | Powered by your dreams 💫</p>
+    <p>© 2025 Yasashii Cafe - All rights reserved.</p>
   </footer>
 </body>
 </html>
-/* フォント：Google Fonts「Zen Maru Gothic」で丸文字感 */
-body {
-  font-family: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', sans-serif;
-  background-color: #f8fcff;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
 
-header {
-  background: linear-gradient(135deg, #c4f3ff, #ffd8f0);
-  padding: 60px 20px 30px;
-  border-bottom: 4px dashed #b3e0ff;
-}
 
-h1 {
-  font-size: 48px;
-  color: #5555ff;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  font-size: 18px;
-  color: #666;
-}
-
-.menu {
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.menu-item {
-  background-color: #ffffff;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(200, 200, 255, 0.3);
-  transition: transform 0.3s;
-}
-
-.menu-item:hover {
-  transform: scale(1.03);
-}
-
-.menu-item h2 {
-  color: #ff69b4;
-  margin-bottom: 8px;
-}
-
-footer {
-  background-color: #f0f8ff;
-  padding: 20px;
-  font-size: 14px;
-  color: #999;
-  border-top: 2px solid #e0f0ff;
-}
