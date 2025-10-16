@@ -1,39 +1,90 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>WISH CAFE</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- 丸文字 + ちょっとポップなフォント -->
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&family=Quicksand:wght@500&display=swap" rel="stylesheet">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WISH CAFE - 夢と希望の空間</title>
+    <link rel="stylesheet" href="styles.css"> </head>
 <body>
-  <div class="hero">
-    <h1>WISH CAFE ☁️</h1>
-    <p class="tagline">Sip the dream, feel the vibe.</p>
-  </div>
+    <header>
+        <h1>🌟 WISH CAFE 🌟</h1>
+        <nav>
+            <a href="#menu">メニュー</a>
+            <a href="#members">メンバーズギャラリー</a>
+            <a href="#events">イベント</a>
+            <a href="#access">アクセス</a>
+        </nav>
+    </header>
 
-  <section class="menu-section">
-    <h2>Menu</h2>
-    <div class="menu-grid">
-      <div class="menu-item">
-        <h3>💙 Dream Latte</h3>
-        <p>ミルクと淡いブルーが混ざる夢色ラテ</p>
-      </div>
-      <div class="menu-item">
-        <h3>💗 Pink Wish Soda</h3>
-        <p>甘くてはじけるピンクグレープのソーダ</p>
-      </div>
-      <div class="menu-item">
-        <h3>☁️ Vanilla Sky</h3>
-        <p>ふわふわホイップとホワイトチョコの癒し</p>
-      </div>
-    </div>
-  </section>
+    <main>
+        <section id="hero">
+            <h2>新しい「WISH」が始まる場所</h2>
+            </section>
 
-  <footer>
-    <p>© 2025 WISH CAFE | Designed with 💫 by dreamers</p>
-  </footer>
-</body>
+        <section id="menu">
+            <h2>🍰 Special Menu</h2>
+            </section>
+
+        </main>
+
+    <footer>
+        <p>&copy; 2025 WISH CAFE. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script> </body>
 </html>
+/* 全体のフォントと背景 */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; /* 薄い水色（空、夢を連想） */
+    color: #333;
+    margin: 0;
+}
 
+/* ヘッダーのスタイル */
+header {
+    background-color: #ffffff; /* 白 */
+    padding: 15px 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* ナビゲーションリンク */
+nav a {
+    color: #4682b4; /* 落ち着いた青 */
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ff69b4; /* ホバーでパステルピンクに変化 */
+    /* キラキラを連想させる影 */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 105, 180, 0.5);
+}
+
+/* セクションの区切り */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* アイコンやロゴの🌟部分にアニメーション */
+h1 span {
+    display: inline-block;
+    animation: sparkle 1.5s infinite alternate;
+}
+
+/* キラキラアニメーション */
+@keyframes sparkle {
+    from {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
