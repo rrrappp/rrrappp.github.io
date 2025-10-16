@@ -3,88 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WISH CAFE - 夢と希望の空間</title>
-    <link rel="stylesheet" href="styles.css"> </head>
+    <title>💖 WISH CAFE - センイル記念イベント 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-    <header>
-        <h1>🌟 WISH CAFE 🌟</h1>
-        <nav>
-            <a href="#menu">メニュー</a>
-            <a href="#members">メンバーズギャラリー</a>
-            <a href="#events">イベント</a>
-            <a href="#access">アクセス</a>
-        </nav>
-    </header>
-
-    <main>
-        <section id="hero">
-            <h2>新しい「WISH」が始まる場所</h2>
-            </section>
-
-        <section id="menu">
-            <h2>🍰 Special Menu</h2>
-            </section>
-
-        </main>
-
-    <footer>
-        <p>&copy; 2025 WISH CAFE. All Rights Reserved.</p>
-    </footer>
-
-    <script src="script.js"></script> </body>
+    </body>
 </html>
-/* 全体のフォントと背景 */
+/*==================================
+  センイルカフェ風 ベーススタイル
+====================================*/
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f8ff; /* 薄い水色（空、夢を連想） */
-    color: #333;
+    /* M PLUS Rounded 1c を最優先に指定 */
+    font-family: 'M PLUS Rounded 1c', 'Arial', sans-serif; 
+    background-color: #fcf4ff; /* ごく薄いパープル/ピンク */
+    color: #4a4a4a; /* 少し柔らかいグレー */
     margin: 0;
+    line-height: 1.6;
 }
 
-/* ヘッダーのスタイル */
+h1, h2, h3 {
+    color: #ff85a2; /* 濃いめのピンク */
+    /* 見出しを太くして、より丸文字感を強調 */
+    font-weight: 700; 
+}
+
+/*==================================
+  ヘッダー＆ナビゲーション：リボン風
+====================================*/
 header {
-    background-color: #ffffff; /* 白 */
+    background-color: #ffffff;
     padding: 15px 50px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* 丸みのあるシャドウで柔らかく */
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2); 
+    border-bottom: 5px solid #a8e0d4; /* ミントグリーンのライン */
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
-/* ナビゲーションリンク */
 nav a {
-    color: #4682b4; /* 落ち着いた青 */
+    color: #4682b4; 
     text-decoration: none;
     margin: 0 15px;
-    transition: color 0.3s;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    border-radius: 15px; /* 丸みをつける */
+    transition: all 0.3s;
 }
 
 nav a:hover {
-    color: #ff69b4; /* ホバーでパステルピンクに変化 */
-    /* キラキラを連想させる影 */
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 105, 180, 0.5);
+    background-color: #ffc8dd; /* ホバーでパステルピンクの背景 */
+    color: #ffffff; /* 文字を白に */
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.5); /* キラキラシャドウ */
 }
 
-/* セクションの区切り */
+/*==================================
+  セクション：フリル＆デコレーション
+====================================*/
 section {
     padding: 60px 20px;
     text-align: center;
+    margin: 30px auto;
+    max-width: 1000px;
+    background-color: #ffffff;
+    border-radius: 30px; /* 全体に大きな丸み */
+    border: 3px dashed #ffb3c1; /* 手書き風の破線ボーダー */
 }
 
-/* アイコンやロゴの🌟部分にアニメーション */
-h1 span {
+/* メニューの画像やカードにも丸みをつける */
+.menu-item img {
+    border-radius: 20px;
+    border: 3px solid #ffe8b3; /* イエローのフチ */
+}
+
+/* カウントダウンタイマー部分を特別な装飾で目立たせる */
+#countdown {
+    font-size: 2em;
+    color: #ff69b4;
+    padding: 15px;
+    margin-top: 20px;
+    /* バルーンやお祝いの文字のような背景 */
+    background-color: #fff0f5; 
+    border-radius: 50px; 
     display: inline-block;
-    animation: sparkle 1.5s infinite alternate;
-}
-
-/* キラキラアニメーション */
-@keyframes sparkle {
-    from {
-        opacity: 0.5;
-        transform: scale(1);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1.1);
-    }
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
 }
